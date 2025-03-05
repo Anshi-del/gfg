@@ -1,0 +1,21 @@
+class Solution {
+    int floorSqrt(int n) {
+        int s = 0, end = n;
+        int ans = 0; // Store the floor value
+        
+        while (s <= end) {
+            int mid = s + (end - s) / 2; // Avoids integer overflow
+            
+            if (mid * mid == n) {
+                return mid;
+            } else if (mid * mid > n) {
+                end = mid - 1;
+            } else {
+                ans = mid; 
+                s = mid + 1;
+            }
+        }
+        
+        return ans; 
+    }
+}
